@@ -11,7 +11,7 @@ import axiosInstance from "../../config/axios";
 import config from "../../config.json";
 
 export default function ChatRoom() {
-    let BASE_URL = config.baseUrl;
+    let BASE_URL = config.socketUrl;
 
     let [text, setText] = useState("");
     let [chat, setChat] = useState([]);
@@ -81,7 +81,7 @@ export default function ChatRoom() {
             .then((res) => {
                 // console.log(res);
                 body.createdAt = new Date().toISOString();
-                setChat([...chat, body]);
+                // setChat([...chat, body]);
                 // console.log(chat);
                 setText("");
                 scrollToBottom();

@@ -11,27 +11,32 @@ import "./index.css";
 
 import UserContext from "./context/UserContext";
 
-axios.defaults.baseURL = "http://localhost:4000";
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = "http://localhost:4000";
+// axios.defaults.withCredentials = true;
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <Login />,
+        },
+        {
+            path: "/profile",
+            element: <Profile />,
+        },
+        {
+            path: "/chat",
+            element: <ChatPage />,
+        },
+        {
+            path: "/friends",
+            element: <Friends />,
+        },
+    ],
     {
-        path: "/",
-        element: <Login />,
-    },
-    {
-        path: "/profile",
-        element: <Profile />,
-    },
-    {
-        path: "/chat",
-        element: <ChatPage />,
-    },
-    {
-        path: "/friends",
-        element: <Friends />,
-    },
-]);
+        basename: "/",
+    }
+);
 
 function ContextUser({ children }) {
     let [user, setUser] = useState({});
